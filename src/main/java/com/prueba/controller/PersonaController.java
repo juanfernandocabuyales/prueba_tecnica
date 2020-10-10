@@ -18,7 +18,7 @@ import com.prueba.interfaces.IPersonaService;
 
 @RestController
 @RequestMapping("/persona")
-public class PersonaController {
+public class PersonaController extends BaseController {
 
 	@Autowired
 	private IPersonaService personaService;

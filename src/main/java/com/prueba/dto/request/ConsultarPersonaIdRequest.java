@@ -1,5 +1,7 @@
 package com.prueba.dto.request;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author Juan Cabuyales           
  * @see <b>{@code }</b> Dto que representa la consulta
@@ -7,9 +9,11 @@ package com.prueba.dto.request;
  * @date oct. 08, 2020
  * @sprint 1
  */
+
 public class ConsultarPersonaIdRequest {
 
 	/** Almacena el id de la persona a consultar*/
+	@NotNull
 	private String idPersona;
 	
 	/**
