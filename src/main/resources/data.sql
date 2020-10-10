@@ -6,9 +6,12 @@ INSERT INTO persona (persona_id,persona_codigo,persona_nombre,persona_apellido,p
                     persona_password,persona_identificacion,persona_codigo_tipo_identificacion,persona_codigo_estado)
             VALUES (2,'13','Pedro Jose','Caballero',SYSDATE,'pedro_jose','5678',1235,2,2);
             
-INSERT INTO tipo_identificacion (tipo_identificacion_codigo,tipo_identificacion_nombre,tipo_identificacion_fecha_creacion,
-								 tipo_identificacion_usuario_creacion,tipo_identificacion_fecha_modificacion,tipo_identificacion_usuario_modificacion)
-			VALUES (1,'CEDULA',SYSDATE,'Juan',SYSDATE,1);
+INSERT INTO entidad_general (entidad_general_id,entidad_general_codigo,entidad_general_nombre,entidad_general_fecha_creacion,
+							 entidad_general_usuario_creacion,entidad_general_fecha_modificacion,entidad_general_usuario_modificacion,dtype)
+			 VALUES (1,1,'CEDULA',SYSDATE,'Juan',SYSDATE,'Juan','TipoIdentificacion');
 			
-INSERT INTO estado (estado_codigo,estado_nombre,estado_fecha_creacion,estado_usuario_creacion,estado_fecha_modificacion,estado_usuario_modificacion)
-            VALUES (1,'Activo',SYSDATE,'Juan',SYSDATE,'Juan');
+INSERT INTO entidad_general (entidad_general_id,entidad_general_codigo,entidad_general_nombre,entidad_general_fecha_creacion,
+							 entidad_general_usuario_creacion,entidad_general_fecha_modificacion,entidad_general_usuario_modificacion,dtype)
+			 VALUES (2,2,'Activo',SYSDATE,'Juan',SYSDATE,'Juan','TipoIdentificacion');
+            
+COMMIT;

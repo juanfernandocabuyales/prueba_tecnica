@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import com.prueba.dto.request.ConsultarPersonaIdRequest;
 import com.prueba.dto.response.ConsultarPersonaIdResponse;
 import com.prueba.interfaces.IPersonaService;
-import com.prueba.interfaces.PersonaRepository;
-import com.prueba.modelo.Persona;
+import com.prueba.repository.Persona;
+import com.prueba.repository.PersonaRepository;
 
 import org.springframework.context.annotation.ScopedProxyMode;
 

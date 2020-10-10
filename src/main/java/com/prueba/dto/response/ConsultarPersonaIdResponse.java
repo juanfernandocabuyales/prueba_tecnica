@@ -1,6 +1,6 @@
 package com.prueba.dto.response;
 
-import com.prueba.modelo.Persona;
+import com.prueba.repository.Persona;
 
 /**
  * @author Juan Cabuyales           

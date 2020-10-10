@@ -13,26 +13,15 @@ CREATE TABLE persona (
   persona_codigo_estado NUMERIC  
 );
 
-DROP TABLE IF EXISTS tipo_identificacion;
-  
-CREATE TABLE tipo_identificacion (
-  tipo_identificacion_id INT AUTO_INCREMENT  PRIMARY KEY,
-  tipo_identificacion_codigo NUMERIC,
-  tipo_identificacion_nombre VARCHAR(20) NOT NULL,
-  tipo_identificacion_fecha_creacion TIMESTAMP,
-  tipo_identificacion_usuario_creacion VARCHAR(20) NOT NULL,
-  tipo_identificacion_fecha_modificacion TIMESTAMP NOT NULL,
-  tipo_identificacion_usuario_modificacion VARCHAR(20) NOT NULL
-);
+DROP TABLE IF EXISTS entidad_general;
 
-DROP TABLE IF EXISTS estado;
-  
-CREATE TABLE estado (
-  estado_id INT AUTO_INCREMENT  PRIMARY KEY,
-  estado_codigo NUMERIC,
-  estado_nombre VARCHAR(20) NOT NULL,
-  estado_fecha_creacion TIMESTAMP,
-  estado_usuario_creacion VARCHAR(20) NOT NULL,
-  estado_fecha_modificacion TIMESTAMP NOT NULL,
-  estado_usuario_modificacion VARCHAR(20) NOT NULL
-);
+CREATE TABLE entidad_general(
+  entidad_general_id INT AUTO_INCREMENT  PRIMARY KEY,
+  entidad_general_codigo NUMERIC,
+  entidad_general_nombre VARCHAR(20) NOT NULL,
+  entidad_general_fecha_creacion TIMESTAMP,
+  entidad_general_usuario_creacion VARCHAR(20) NOT NULL,
+  entidad_general_fecha_modificacion TIMESTAMP NOT NULL,
+  entidad_general_usuario_modificacion VARCHAR(20) NOT NULL,
+  dtype VARCHAR(20) DEFAULT NULL
+)
