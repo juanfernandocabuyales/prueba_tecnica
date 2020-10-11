@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface PersonaRepository extends JpaRepository<Persona,Long > {
 	
 	List<Persona> findByPersonaId(Long personaId);
+	
+	
 }
