@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ public class PersonaController extends BaseController {
 	@Autowired
 	private IPersonaService personaService;
 
-	@PostMapping(value = "/consultarPersonaId", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/consultarPersonaId", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> consultarPersonaId(@RequestBody GeneralRequest request){
 
 		Gson gson = new Gson();
@@ -53,6 +54,20 @@ public class PersonaController extends BaseController {
 		GeneralResponse resp = new GeneralResponse();
 		resp.setMensaje(gson.toJson(crearActualizarPersonaResponse));
 
-		return new ResponseEntity<GeneralResponse>(resp, HttpStatus.OK);
+		return new ResponseEntity<GeneralResponse>(resp, HttpStatus.GONE);
 	}
+	
+	@DeleteMapping(value="/eliminarPersona",produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> eliminarPersona(@RequestBody GeneralRequest request){
+
+		Gson gson = new Gson();
+
+		ConsultarPersonaIdRequest consultarPersonaIdRequest = gson.fromJson(request.getPeticion(), ConsultarPersonaIdRequest.class);
+
+		ConsultarPersonaIdResponse consultarPersonaIdResponse = personaService.eliminarPersona(consultarPersonaIdRequest);
+
+		GeneralResponse resp = new GeneralResponse();
+		resp.setMensaje(gson.toJson(consultarPersonaIdResponse));
+
+		return new ResponseEntity<GeneralResponse>(resp, HttpStatus.OK);	}	
 }

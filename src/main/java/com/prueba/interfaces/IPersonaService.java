@@ -10,4 +10,6 @@ public interface IPersonaService {
 	ConsultarPersonaIdResponse consultarPersonaId(ConsultarPersonaIdRequest request);
 	
 	CrearActualizarPersonaResponse actualizarPersona (CrearActualizarPersonaRequest request);
+	
+	ConsultarPersonaIdResponse eliminarPersona(ConsultarPersonaIdRequest request);
 }

@@ -63,6 +63,8 @@ public class PersonaService implements IPersonaService{
 			
 			personaActualiza = personaRepository.save(personaActualiza);
 			
+			personaActualiza.setPersonaFechaNacimiento(new SimpleDateFormat("dd/MM/yyyy").parse(request.getPersonaDto().getFechaNacimiento()));
+			
 			crearActualizarPersonaResponse.setCodigoRespuesta("0");
 			crearActualizarPersonaResponse.setMensajeRespuesta("OK");
 			crearActualizarPersonaResponse.setPersonaDto(personaActualiza);
@@ -72,6 +74,23 @@ public class PersonaService implements IPersonaService{
 			crearActualizarPersonaResponse.setMensajeRespuesta("Fallo la actualizacion de la persona");
 		}
 		return crearActualizarPersonaResponse;
+	}
+
+	@Override
+	public ConsultarPersonaIdResponse eliminarPersona(ConsultarPersonaIdRequest request) {
+		ConsultarPersonaIdResponse consultarPersonaIdResponse = new ConsultarPersonaIdResponse();
+		try {
+			List<Persona> personaConsulta = personaRepository.findByPersonaId(Long.parseLong(request.getIdPersona()));
+			personaRepository.delete(personaConsulta.get(0));
+			consultarPersonaIdResponse.setCodigoRespuesta("0");
+			consultarPersonaIdResponse.setMensajeRespuesta("OK");
+			consultarPersonaIdResponse.setPersonaConsulta(personaConsulta.get(0));
+		}catch(Exception e) {
+			e.printStackTrace();
+			consultarPersonaIdResponse.setCodigoRespuesta("1");
+			consultarPersonaIdResponse.setMensajeRespuesta("Fallo la eliminacion de la persona");
+		}
+		return consultarPersonaIdResponse;
 	}
 
 }
